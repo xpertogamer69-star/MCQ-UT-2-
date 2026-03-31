@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<style>
+body {font-family: Arial; padding:15px;}
+button {display:block; width:100%; margin:6px 0; padding:10px;}
+</style>
+</head>
+<body>
+
+<h3 id="q"></h3>
+<div id="op"></div>
+<h4 id="res"></h4>
+
+<script>
+let quiz = [
+
+{q:"1. Which energy form is NOT influenced by weather conditions?",
+opt:["A. Solar","B. Wind","C. Geothermal","D. Hydropower"],ans:"C. Geothermal"},
+
+{q:"2. Energy flow in any ecosystem is primarily obtained from,..........",
+opt:["(a) Coal","(b) Power","(c) Sun","(d) None of the above"],ans:"(c) Sun"},
+
+{q:"3. ........organisms can exchange between soil and water.",
+opt:["(a) Dead","(b) Living","(c) No","(d) None of the above"],ans:"(b) Living"},
+
+{q:"4. Coral reef is example of....type of ecosystem",
+opt:["(a) Terrestrial","(b) Aquatic","(c) Organic","(d) None of the above"],ans:"(b) Aquatic"},
+
+{q:"5. Biogeochemical cycling links .....and..... components in ecosystem.",
+opt:["(a) Plants and animal","(b) Living & non- living","(c) Organic & Inorganic","(d) None of the above"],ans:"(b) Living & non- living"},
+
+{q:"6. Food chain and food web concept is associated with….. transformations.",
+opt:["(a) Chemical","(b) Ecological","(c) Energy","(d) None of the above"],ans:"(c) Energy"},
+
+{q:"7. Amount of energy….. from bottom to top.",
+opt:["(a) Increases","(b) Decreases","(c) Remains same","(d) None of the above"],ans:"(b) Decreases"},
+
+{q:"8. If deforestation occurs in a region, which of the following ecosystem changes will occur first?",
+opt:["(a) Increase in biodiversity","(b) Decrease in biodiversity","(c) Increase in rainfall","(d) Increase in soil fertility"],ans:"(b) Decrease in biodiversity"},
+
+{q:"9. If sunlight does not reach an ecosystem for a long time, which process will be affected first?",
+opt:["(a) Respiration","(b) Photosynthesis","(c) Decomposition","(d) Nutrient cycling"],ans:"(b) Photosynthesis"},
+
+{q:"10. Mercury, lead, tin are examples of",
+opt:["(a) Natural pollutants","(b) Artificial pollutants","(c) Persistence pollutants","(d) Non-degradable pollutants"],ans:"(d) Non-degradable pollutants"},
+
+{q:"11. Which of these is a radioactive waste?",
+opt:["(a) Gold","(b) Silver","(c) Mercury","(d) Uranium"],ans:"(d) Uranium"},
+
+{q:"12. Smog causes:…..",
+opt:["(a) Water pollution","(b) Air pollution","(c) Soil pollution","(d) None of these"],ans:"(b) Air pollution"},
+
+{q:"13. Weedcides is which type of pollutant:",
+opt:["(a) Agro-pesticides","(b) Domestic waste","(c) Gases","(d) None of these"],ans:"(a) Agro-pesticides"},
+
+{q:"14. The rise in SO2 causes :…..",
+opt:["(a) Greening of leaves","(b) Increase in rate of photosynthesis","(c) Decrease in plant growth","(d) Yellowing of leaves"],ans:"(d) Yellowing of leaves"},
+
+{q:"15. The suspended particulate matter is released into air by…..",
+opt:["(a) Stone crushing","(b) Thermal power plant","(c) Automobile exhaust","(d) All the above"],ans:"(d) All the above"},
+
+{q:"16. The nature has its own mechanism to remove the pollutant. This mechanism is called as…..",
+opt:["(a) Photosynthesis","(b) Scavenging","(c) Dispersion","(d) Chlorosis"],ans:"(b) Scavenging"},
+
+{q:"17. Global warming causes over flooding:….",
+opt:["(a) False","(b) True","(c) None","(d) All the above"],ans:"(b) True"},
+
+{q:"18. The rise in ozone causes…..",
+opt:["(a) Necrosis","(b) Abscission","(c) Destroying","(d) Disturbing photosynthesis"],ans:"(a) Necrosis"},
+
+{q:"19. The paints get decolourised by……. ",
+opt:["(a) SO2&HCL","(b) SO2&H2S","(c) SO2&O3","(d) SO2&NO2"],ans:"(c) SO2&O3"},
+
+{q:"20. In hydroponics, what is used to deliver nutrients to plants?",
+opt:["A. Soil","B. Fertilizer mixed in mud","C. Water with dissolved nutrients","D. Dry compost only"],ans:"C. Water with dissolved nutrients"},
+
+{q:"21. Electric vehicles require which infrastructure for effective adoption?",
+opt:["A. Oil refineries","B. Coal power stations","C. Charging stations","D. Plastic roads"],ans:"C. Charging stations"},
+
+{q:"22. Which programming technique is often used in environmental modeling?",
+opt:["A. HTML","B. Data mining and simulation","C. Calligraphy","D. Typing"],ans:"B. Data mining and simulation"},
+
+{q:"23. Electric vehicles help in reducing dependence on which resource?",
+opt:["A. Wind energy","B. Solar energy","C. Fossil fuels","D. Geothermal energy"],ans:"C. Fossil fuels"},
+
+{q:"24. Which of these is a challenge in vertical farming?",
+opt:["A. Weather dependency","B. Excess land requirement","C. High energy use for lighting","D. Heavy labor need"],ans:"C. High energy use for lighting"},
+
+{q:"25. Man-made mechanism to control air pollution includes…..",
+opt:["(a) Dispersion","(b) Settling","(c) Centrifugal separators","(d) Absorption"],ans:"(c) Centrifugal separators"},
+
+{q:"26. Radioactive dust causes genetic effect on the next generation…..",
+opt:["a) True","b) False","c) None of these","d) Neither true nor false"],ans:"a) True"},
+
+{q:"27. Article (48-A) of Indian Constitution deals with…..",
+opt:["(a) Conservation and Improvement of Environment","(b) Sustainable Development","(c) Water Conservation","(d) Deforestation"],ans:"(a) Conservation and Improvement of Environment"},
+
+{q:"28. ….technology is highly useful for Environment and health.",
+opt:["(a) Digital","(b) Chemical","(c) Information","(d) Computational"],ans:"(c) Information"},
+
+{q:"29. Article…..of Indian Constitution deals with fundamental duties.",
+opt:["(a)51-A (g)","(b) 48-A","(c) 21","(d) 19"],ans:"(a)51-A (g)"},
+
+{q:"30. Vertical farming systems are commonly used to grow :",
+opt:["(a) Only fruits","(b) Crops in soil-rich environments","(c) A variety of crops such as leafy greens, herbs, and vegetables in stacked layers","(d) Only flowers and decorative plants"],ans:"(c) A variety of crops such as leafy greens, herbs, and vegetables in stacked layers"},
+
+{q:"31. What is the key feature of electric vehicles (EV's) that makes them environmentally friendly ?",
+opt:["(a) They use renewable fuels","(b) They are powered by electricity and do not emit greenhouse gases during operation","(c) They rely on hybrid fuel sources","(d) They are made from 100% recyclable materials"],ans:"(b) They are powered by electricity and do not emit greenhouse gases during operation"},
+
+{q:"32. In which way does plant-based packaging contribute to environmental sustainability?",
+opt:["(a) It is made from fossil fuels","(b) It is biodegradable and compostable, reducing plastic waste","(c) It requires extensive energy","(d) It is non-recyclable"],ans:"(b) It is biodegradable and compostable, reducing plastic waste"},
+
+{q:"33. What is the primary benefit of using green architecture in building design?",
+opt:["(a) Reduced cost","(b) Aesthetic","(c) Improved energy efficiency and reduced environmental impact","(d) Faster construction"],ans:"(c) Improved energy efficiency and reduced environmental impact"},
+
+{q:"34. Hydroponics is a method of growing plants without soil. Main component?",
+opt:["(a) Sand","(b) Air","(c) Nutrient-rich water","(d) Organic manure"],ans:"(c) Nutrient-rich water"},
+
+{q:"35. Vertical farming is sustainable because it:",
+opt:["(a) Requires large land","(b) Uses less water","(c) Uses chemicals","(d) One crop"],ans:"(b) Uses less water"},
+
+{q:"36. Who enforces environmental laws at the district level?",
+opt:["A. President","B. District Collector / Magistrate","C. Finance Officer","D. Highway Authority"],ans:"B. District Collector / Magistrate"},
+
+{q:"37. Which organization is most likely to lead an environmental clean-up drive?",
+opt:["A. NGO","B. Bank","C. Factory","D. Library"],ans:"A. NGO"},
+
+{q:"38. What role can youth clubs play in environmental protection?",
+opt:["A. Start industries","B. Promote unsustainable living","C. Spread awareness and organize green events","D. Ignore"],ans:"C. Spread awareness and organize green events"},
+
+{q:"39. Which IT tool is used to simulate climate models?",
+opt:["A. WordPad","B. Climate modeling software","C. Paint","D. Calculator"],ans:"B. Climate modeling software"},
+
+{q:"40. Which of these can be considered a smart farming technology?",
+opt:["A. Tilling","B. Hydroponics","C. Animal plowing","D. Manual harvesting"],ans:"B. Hydroponics"}
+
+];
+
+let i=0,score=0;
+
+function loadQ(){
+document.getElementById("res").innerText="";
+let q=quiz[i];
+document.getElementById("q").innerText=q.q;
+
+let div=document.getElementById("op");
+div.innerHTML="";
+
+q.opt.forEach(o=>{
+let b=document.createElement("button");
+b.innerText=o;
+b.onclick=function(){check(o)};
+div.appendChild(b);
+});
+}
+
+function check(a){
+let c=quiz[i].ans;
+
+if(a===c){score++;document.getElementById("res").innerText="Correct ✅";}
+else{document.getElementById("res").innerText="Wrong ❌ Correct: "+c;}
+
+setTimeout(()=>{i++; if(i<quiz.length) loadQ(); else alert("Score: "+score+"/40");},700);
+}
+
+loadQ();
+</script>
+
+</body>
+</html>
