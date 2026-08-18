@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Last Message</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 420px;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+h1 {
+    margin: 10px 0 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: #ff4f81;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#error {
+    color: #ffe1e1;
+    margin-top: 10px;
+    display: none;
+}
+
+#secret {
+    display: none;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 15px;
+    text-align: left;
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.message p {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- PASSWORD PAGE -->
+    <div id="login">
+
+        <h1>One Last Message</h1>
+
+        <p>
+            Before you leave this page,
+            <br>
+            there's something I wanted you to read.
+        </p>
+
+        <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter your birthdate"
+        >
+
+        <button onclick="unlock()">Continue</button>
+
+        <p id="error">Wrong password</p>
+
+    </div>
+
+
+    <!-- LAST MESSAGE -->
+    <div id="secret">
+
+        <h1>One Last Message</h1>
+
+        <div class="message">
+
+            <p>
+                Hey,
+            </p>
+
+            <p>
+                I don't know if you'll ever come back,
+                and maybe this is the last thing I'll ever say to you.
+            </p>
+
+            <p>
+                I just wanted to leave these words here because
+                there were some things I never got to say properly.
+            </p>
+
+            <p>
+                <b>
+                YAHAN APNA ACTUAL LAST MESSAGE LIKHNA HAI
+                </b>
+            </p>
+
+            <p>
+                I genuinely hope you're happy wherever life takes you.
+            </p>
+
+            <p>
+                Take care of yourself.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function unlock() {
+
+    const password = document.getElementById("password").value;
+
+    // YAHAN USKI BIRTHDATE DALO
+    // Example: 11 March 2008 = 11032008
+
+    const correctPassword = "1132008";
+
+    if (password === correctPassword) {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("secret").style.display = "block";
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
